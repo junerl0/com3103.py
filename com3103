@@ -24,8 +24,8 @@ def your_score(score):
     value = score_font.render("Point: " + str(score), True, white)
     dis.blit(value, [10, 10])
 
-def draw_heart(x, y):
-    pygame.draw.polygon(dis, (255, 0, 0), [(x + 5, y + 3), (x, y + 8), (x + 10, y + 8)])
+def draw_circle(x, y):
+    pygame.draw.circle(dis, (0, 0, 255), (x + snake_block // 2, y + snake_block // 2), snake_block // 2)
 
 def our_snake(snake_block, snake_list):
     for x in snake_list:
@@ -94,7 +94,7 @@ def gameLoop():
         y1 += y1_change
         dis.fill(black)
         pygame.draw.rect(dis, (0, 255, 0), [foodx, foody, snake_block, snake_block])
-        draw_heart(special_foodx, special_foody)
+        draw_circle(special_foodx, special_foody)
         
         snake_Head = []
         snake_Head.append(x1)
